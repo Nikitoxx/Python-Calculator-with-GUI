@@ -33,8 +33,8 @@ for i in range(len(buttons)):
                height=2).grid(column=j, row=i, 
                               padx=1, pady=1,
                               sticky='wens')
-        root.grid_columnconfigure(j, minsize=60)
-        root.grid_rowconfigure(i, minsize=60)
+        #root.grid_columnconfigure(j, minsize=60)
+        #root.grid_rowconfigure(i, minsize=60)
         
 
         
