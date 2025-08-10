@@ -4,6 +4,8 @@ root =Tk()
 root.title('Calculator')
 root.config(bg="black")
 root.resizable(False, False)
+img = PhotoImage(file='logo.png')
+root.iconphoto(False, img)
 
 
 
