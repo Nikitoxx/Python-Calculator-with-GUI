@@ -7,7 +7,9 @@ root.resizable(False, False)
 
 
 
-Entry(font=('Arial', 20)).grid(row=0, column=0, 
+Entry(font=('Arial', 20),
+      bg='black', 
+      fg='white').grid(row=0, column=0, 
                                columnspan=4,
                                padx=3,
                                pady=3)
@@ -32,7 +34,7 @@ for i in range(len(buttons)):
                               padx=1, pady=1,
                               sticky='wens')
         root.grid_columnconfigure(j, minsize=60)
-        #root.grid_rowconfigure(i, minsize=60)
+        root.grid_rowconfigure(i, minsize=60)
         
 
         
