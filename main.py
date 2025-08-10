@@ -23,7 +23,8 @@ for i in range(len(buttons)):
                font='Arial, 15',
                width=5,
                height=2).grid(column=j, row=i)
-Entry().get()
+        
+
         
 
 root.mainloop()
