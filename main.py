@@ -35,11 +35,12 @@ def result():
     ent.insert(END, res)
     
 def clear():
-    ent.delete(END, 0)
+    ent.delete(0, END)
 
 
 
 buttons = [[],
+           ['%', '**', '//'],
             ['7','8','9','+'],
            ['4','5','6','-'],
            ['1','2','3','*'],
@@ -68,7 +69,16 @@ Button(text='=',
                command=result).grid(column=3, row=4, 
                               padx=1, pady=1,
                               sticky='wens')
-               
+
+Button(text='C', 
+               bg='orange',
+               fg='white',
+               font=('Arial', 15),
+               width=5,
+               height=2,
+               command=clear).grid(column=3, row=1, 
+                              padx=1, pady=1,
+                              sticky='wens')
 
         
 
