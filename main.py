@@ -36,6 +36,9 @@ def result():
     
 def clear():
     ent.delete(0, END)
+    
+def delete():
+    ent.delete(len(ent.get())-1, END)
 
 
 
@@ -77,6 +80,16 @@ Button(text='C',
                width=5,
                height=2,
                command=clear).grid(column=3, row=1, 
+                              padx=1, pady=1,
+                              sticky='wens')
+               
+Button(text='del', 
+               bg='orange',
+               fg='white',
+               font=('Arial', 15),
+               width=5,
+               height=2,
+               command=delete).grid(column=3, row=5, 
                               padx=1, pady=1,
                               sticky='wens')
 
