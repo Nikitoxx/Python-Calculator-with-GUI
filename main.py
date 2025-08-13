@@ -1,4 +1,6 @@
-from tkinter import * 
+from tkinter import *
+
+from random import randint
 
 
 #Geometry
@@ -25,7 +27,8 @@ ent.grid(row=0,
             padx=3,
             pady=3)
       
-#Funcions
+#Main functions
+
 def ins_val(v):
     ent.insert(END, v)
     
@@ -39,20 +42,22 @@ def clear():
     
 def delete():
     ent.delete(len(ent.get())-1, END)
+    
+    
 
 
 
 buttons = [[],
-           ['%', '**', '//'],
-            ['7','8','9','+'],
-           ['4','5','6','-'],
-           ['1','2','3','*'],
+           ['', '', '%','/'],
+            ['7','8','9','//'],
+           ['4','5','6','+'],
+           ['1','2','3','-'],
            ['.','0','/']
 ]
 
 for i in range(len(buttons)):
     for j in range(len(buttons[i])):
-        Button(text=buttons[i][j], 
+        btn = Button(text=buttons[i][j], 
                bg='orange',
                fg='white',
                font=('Arial', 15),
@@ -62,6 +67,7 @@ for i in range(len(buttons)):
                ).grid(column=j, row=i, 
                               padx=1, pady=1,
                               sticky='wens')
+               
                
 Button(text='=', 
                bg='orange',
@@ -79,7 +85,7 @@ Button(text='C',
                font=('Arial', 15),
                width=5,
                height=2,
-               command=clear).grid(column=3, row=1, 
+               command=clear).grid(column=1, row=1, 
                               padx=1, pady=1,
                               sticky='wens')
                
@@ -89,7 +95,7 @@ Button(text='del',
                font=('Arial', 15),
                width=5,
                height=2,
-               command=delete).grid(column=3, row=5, 
+               command=delete).grid(column=0, row=1, 
                               padx=1, pady=1,
                               sticky='wens')
 
