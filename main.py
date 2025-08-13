@@ -33,9 +33,15 @@ def ins_val(v):
     ent.insert(END, v)
     
 def result():
-    res = eval(ent.get())
-    ent.delete(0, END)
-    ent.insert(END, res)
+    for i in ent.get():
+        if i.isalpha():
+            ent.delete(0, END)
+            ent.insert(END, 'Wrong!')
+            break
+    else:
+        res = eval(ent.get())
+        ent.delete(0, END)
+        ent.insert(END, res)
     
 def clear():
     ent.delete(0, END)
@@ -49,10 +55,10 @@ def delete():
 
 buttons = [[],
            ['', '', '%','/'],
-            ['7','8','9','//'],
+            ['7','8','9','*'],
            ['4','5','6','+'],
            ['1','2','3','-'],
-           ['.','0','/']
+           ['.','0','//', ]
 ]
 
 for i in range(len(buttons)):
@@ -75,7 +81,7 @@ Button(text='=',
                font=('Arial', 15),
                width=5,
                height=2,
-               command=result).grid(column=3, row=4, 
+               command=result).grid(column=3, row=5, 
                               padx=1, pady=1,
                               sticky='wens')
 
