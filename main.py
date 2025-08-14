@@ -49,6 +49,9 @@ def clear():
 def delete():
     ent.delete(len(ent.get())-1, END)
     
+def yodaa():
+    ent.insert(END, 'Baby Yoda❤')
+    
     
 
 
@@ -102,6 +105,19 @@ Button(text='del',
                width=5,
                height=2,
                command=delete).grid(column=0, row=1, 
+                              padx=1, pady=1,
+                              sticky='wens')
+
+
+yoda = PhotoImage(file='baby-yoda.png')
+
+Button(image=yoda, 
+               bg='orange',
+               fg='white',
+               font=('Arial', 15),
+               width=5,
+               height=2,
+               command=yodaa).grid(column=3, row=5, 
                               padx=1, pady=1,
                               sticky='wens')
 
