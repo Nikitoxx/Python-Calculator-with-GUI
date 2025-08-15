@@ -108,10 +108,10 @@ Button(text='del',
                               padx=1, pady=1,
                               sticky='wens')
 
-
+'''
 yoda = PhotoImage(file='baby-yoda.png')
 
-'''
+
 Button(image=yoda, 
                bg='orange',
                fg='white',
