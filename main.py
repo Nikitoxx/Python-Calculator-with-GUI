@@ -33,16 +33,20 @@ def ins_val(v):
     ent.insert(END, v)
     
 def result():
-    for i in ent.get():
-        if i.isalpha():
+    try:
+        for i in ent.get():
+            if i.isalpha():
+                ent.delete(0, END)
+                ent.insert(END, 'Wrong!')
+                break
+        else:
+            res = eval(ent.get())
             ent.delete(0, END)
-            ent.insert(END, 'Wrong!')
-            break
-    else:
-        res = eval(ent.get())
+            ent.insert(END, res)
+    except SyntaxError:
         ent.delete(0, END)
-        ent.insert(END, res)
-    
+        ent.insert(END, 'imposible to calc')
+        
 def clear():
     ent.delete(0, END)
     
@@ -65,9 +69,13 @@ buttons = [[],
 ]
 
 for i in range(len(buttons)):
+    colors = ['pink', 'yellow',
+              'green', 'violet',
+              'lime', 'red',
+              'blue']
     for j in range(len(buttons[i])):
         btn = Button(text=buttons[i][j], 
-               bg='orange',
+               bg=colors[randint(0, len(colors)-1)],
                fg='white',
                font=('Arial', 15),
                width=5,
@@ -107,7 +115,6 @@ Button(text='del',
                command=delete).grid(column=0, row=1, 
                               padx=1, pady=1,
                               sticky='wens')
-
 
 yoda = PhotoImage(file='baby-yoda.png')
 
