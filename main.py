@@ -49,8 +49,8 @@ def clear():
 def delete():
     ent.delete(len(ent.get())-1, END)
     
-#def yodaa():
-#    ent.insert(END, 'Baby Yoda❤')
+def yodaa():
+   ent.insert(END, 'Baby Yoda❤')
     
     
 
@@ -61,7 +61,7 @@ buttons = [[],
             ['7','8','9','*'],
            ['4','5','6','+'],
            ['1','2','3','-'],
-           ['.','0','//', ]
+           ['.','0','', ]
 ]
 
 for i in range(len(buttons)):
@@ -111,17 +111,17 @@ Button(text='del',
 
 yoda = PhotoImage(file='baby-yoda.png')
 
-'''
+
 Button(image=yoda, 
                bg='orange',
                fg='white',
                font=('Arial', 15),
                width=5,
                height=2,
-               command=yodaa).grid(column=3, row=5, 
+               command=yodaa).grid(column=2, row=5, 
                               padx=1, pady=1,
                               sticky='wens')
-'''
+
         
 
         
