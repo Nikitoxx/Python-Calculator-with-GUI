@@ -1,7 +1,5 @@
 from tkinter import *
 
-from random import randint
-
 
 #Geometry
 
@@ -29,6 +27,18 @@ ent.grid(row=0,
       
 #Main functions
 
+def create_button(column, row, text, command):
+    Button(text=text, 
+               bg='orange',
+               fg='white',
+               font=('Arial', 15),
+               width=5,
+               height=2,
+               command=command).grid(column=column, row=row, 
+                              padx=1, pady=1,
+                              sticky='wens')
+    
+
 def ins_val(v):
     ent.insert(END, v)
     
@@ -37,7 +47,7 @@ def result():
         for i in ent.get():
             if i.isalpha():
                 ent.delete(0, END)
-                ent.insert(END, 'Wrong!')
+                ent.insert(END, 'Error.')
                 break
         else:
             res = eval(ent.get())
@@ -45,7 +55,7 @@ def result():
             ent.insert(END, res)
     except SyntaxError:
         ent.delete(0, END)
-        ent.insert(END, 'imposible to calc')
+        ent.insert(END, 'Error.')
         
 def clear():
     ent.delete(0, END)
@@ -60,61 +70,27 @@ def yodaa():
 
 
 
-buttons = [[],
-           ['', '', '%','/'],
-            ['7','8','9','*'],
-           ['4','5','6','+'],
-           ['1','2','3','-'],
-           ['.','0','', ]
+buttons = [['del', 'C', '%','/'],
+           ['7', '8', '9', '*'],
+           ['4', '5', '6', '+'],
+           ['1', '2', '3', '-'],
+           ['.', '0', '', '=' ]
 ]
 
 for i in range(len(buttons)):
-    colors = ['pink', 'yellow',
-              'green', 'violet',
-              'lime', 'red',
-              'blue']
     for j in range(len(buttons[i])):
-        btn = Button(text=buttons[i][j], 
-               bg=colors[randint(0, len(colors)-1)],
-               fg='white',
-               font=('Arial', 15),
-               width=5,
-               height=2,
-               command=lambda val = buttons[i][j]: ins_val(val)
-               ).grid(column=j, row=i, 
-                              padx=1, pady=1,
-                              sticky='wens')
+        if buttons[i][j] == 'del':
+            create_button(j, i+1, 'del', delete)
+        elif buttons[i][j] == 'C':
+            create_button(j, i+1, 'C', clear)
+        elif buttons[i][j] == '=':
+            create_button(j, i+1, '=',result)
+        else:
+            create_button(j, i+1, buttons[i][j],
+                          lambda val = buttons[i][j]: ins_val(val))
                
-               
-Button(text='=', 
-               bg='orange',
-               fg='white',
-               font=('Arial', 15),
-               width=5,
-               height=2,
-               command=result).grid(column=3, row=5, 
-                              padx=1, pady=1,
-                              sticky='wens')
 
-Button(text='C', 
-               bg='orange',
-               fg='white',
-               font=('Arial', 15),
-               width=5,
-               height=2,
-               command=clear).grid(column=1, row=1, 
-                              padx=1, pady=1,
-                              sticky='wens')
-               
-Button(text='del', 
-               bg='orange',
-               fg='white',
-               font=('Arial', 15),
-               width=5,
-               height=2,
-               command=delete).grid(column=0, row=1, 
-                              padx=1, pady=1,
-                              sticky='wens')
+
 
 yoda = PhotoImage(file='baby-yoda.png')
 
