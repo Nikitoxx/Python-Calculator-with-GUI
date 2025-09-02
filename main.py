@@ -92,19 +92,6 @@ for i in range(len(buttons)):
 
 
 
-yoda = PhotoImage(file='baby-yoda.png')
-
-
-Button(image=yoda, 
-               bg='orange',
-               fg='white',
-               font=('Arial', 15),
-               width=5,
-               height=2,
-               command=yodaa).grid(column=2, row=5, 
-                              padx=1, pady=1,
-                              sticky='wens')
-
         
 
         
