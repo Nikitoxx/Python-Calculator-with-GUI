@@ -1,4 +1,5 @@
 from tkinter import *
+import HistoryWind.functions as f 
 
 
 #Geometry
@@ -24,8 +25,6 @@ ent.grid(row=0,
             columnspan=4,
             padx=3,
             pady=3)
-      
-#Main functions
 
 
 def create_button(column, row, text, command):
@@ -38,7 +37,8 @@ def create_button(column, row, text, command):
                command=command).grid(column=column, row=row, 
                               padx=1, pady=1,
                               sticky='wens')
-    
+
+      
 
 def ins_val(v):
     ent.insert(END, v)
@@ -70,19 +70,13 @@ def delete():
     ent.delete(len(ent.get())-1, END)
     
 
-def create_new_window():
-    wnd = Tk()
-    wnd.title('Calculator history')
-    wnd.config(bg="black")
-    wnd.resizable(False, False)
-    
-
 buttons = [['del', 'C', '%','/'],
            ['7', '8', '9', '*'],
            ['4', '5', '6', '+'],
            ['1', '2', '3', '-'],
            ['.', '0', 'History', '=' ]
 ]
+
 
 for i in range(len(buttons)):
     for j in range(len(buttons[i])):
@@ -93,7 +87,7 @@ for i in range(len(buttons)):
         elif buttons[i][j] == '=':
             create_button(j, i+1, '=', result)
         elif buttons[i][j] == 'History':
-            create_button(j, i+1, 'History', create_new_window)
+           create_button(j, i+1, 'History', f.create_new_window)
         else:
             create_button(j, i+1, buttons[i][j],
                           lambda val = buttons[i][j]: ins_val(val))
