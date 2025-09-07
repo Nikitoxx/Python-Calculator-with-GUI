@@ -14,7 +14,12 @@ def create_new_window():
     with open('history.txt', 'r') as file:
         a = file.readlines()
         for i, v in enumerate(a, 1):
-            Label(wnd, text=f"{i}. {v}", fg='white', bg='black', font='Arial, 15', anchor='w', justify='left').pack(side='top', fill='x')
+            Label(wnd, text=f"{i}. {v}", fg='white', 
+                  bg='black', 
+                  font='Arial, 15', 
+                  anchor='w', 
+                  justify='left'
+                  ).pack(side='top', fill='x')
         
         
     
